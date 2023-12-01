@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .t{
+        font-size: 20px;
+        font: 500;
+    }
+    </style>
+</head>
+
+<br>
+    <a href="#1"> link 1 </a></br>
+    <a href="#2"> link 2 </a></br>
+    <a href="#3"> link 3 </a></br>
+    <a href="#4"> link 4 </a></br>
+    <a href="#5"> link 5 </a></br>
+    <a href="#6"> link 6</a>
+    <h5 id="1" class="t"> lab 6 </h5>
+    <pre>
+        #include iostream
+            using namespace std;
+            
+            class Student{
+                private:
+                    int Regno;
+                    char name[20];
+                public: Student(){
+                    Regno=0;
+                    };
+            void inputRegno(){
+                cout "Enter the name: ";
+                cin>>name;
+                cout "Enter an Register number: ";
+                cin>>Regno;
+            }
+            void displayRegno(){
+                cout "Name is : " name endl;
+                cout "Register Number is : " Regno endl;
+            }
+            };
+            int main(){
+                Student S;
+                Student *ptr;
+                ptr = new Student; //creating & assigning memory
+                ptr->inputRegno();
+                ptr->displayRegno();
+                return 0;
+            }
+
+
+
+
+            #include  iostream 
+                using namespace std;
+                
+                class Fibonacci {
+                    int n1, n2;
+                
+                public:
+                    Fibonacci() {
+                        n1 = 0;
+                        n2 = 1;
+                    }
+                
+                    void series(int n) {
+                        int i, next;
+                        cout    n1   " "   n2   " ";
+                        for (i = 1; i  lessthan= n - 2; i++) {
+                            next = n1 + n2;
+                            cout  next  " ";
+                            n1 = n2;
+                            n2 = next;
+                        }
+                    }
+                };
+                
+                int main() {
+                    Fibonacci fib;
+                    int n;
+                
+                    cout  "FIBONACCI SERIES "  endl;
+                    cout  "How many numbers do you want? ";
+                    cin >> n;
+                    fib.series(n);
+                
+                    return 0;
+                }
+                
+                
+</pre>
+
+    <h5 id="2" class="t"> lab 7 </h5>
+    <pre>
+            #include iostream>
+            #include iomanip>
+            using namespace std;
+            
+            class matrix {
+            protected:
+                int i, j, a[10][10], b[10][10], c[10][10];
+                int m1, n1, m2, n2;
+            
+            public:
+                virtual void read() = 0;
+                virtual void display() = 0;
+                virtual void sum() = 0;
+                virtual void sub() = 0;
+                virtual void mult() = 0;
+            };
+            
+            class result : public matrix {
+            public:
+                void read();
+                void sum();
+                void sub();
+                void mult();
+                void display();
+            };
+            
+            void result::read() {
+                cout  "\nEnter the order of matrix A: ";
+                cin >> m1 >> n1;
+                cout  "\nEnter the elements of matrix A: ";
+                for (i = 0; i less m1; i++) {
+                    for (j = 0; j less n1; j++) {
+                        cin >> a[i][j];
+                    }
+                }
+            
+                cout  "\nEnter the order of matrix B: ";
+                cin >> m2 >> n2;
+                cout  "\nEnter the elements of matrix B: ";
+                for (i = 0; i less m2; i++) {
+                    for (j = 0; j less n2; j++) {
+                        cin >> b[i][j];
+                    }
+                }
+            }
+            
+            void result::display() {
+                for (i = 0; i less m1; i++) {
+                    for (j = 0; j less n1; j++) {
+                        cout.width(3);
+                        cout  c[i][j];
+                    }
+                    cout  "\n";
+                }
+            }
+            
+            void result::sum() {
+                if ((m1 != m2) || (n1 != n2)) {
+                    cout  "The order should be the same for addition";
+                } else {
+                    for (i = 0; i less m1; i++) {
+                        for (j = 0; j less n1; j++) {
+                            c[i][j] = a[i][j] + b[i][j];
+                        }
+                    }
+                }
+            }
+            
+            void result::sub() {
+                if ((m1 != m2) || (n1 != n2)) {
+                    cout  "The order should be the same for subtraction ";
+                } else {
+                    for (i = 0; i less m1; i++) {
+                        for (j = 0; j less n1; j++) {
+                            c[i][j] = a[i][j] - b[i][j];
+                        }
+                    }
+                }
+            }
+            
+            void result::mult(void) {
+                if (n1 != m2) {
+                    cout  "Invalid order limit ";
+                } else {
+                    for (i = 0; i less m1; i++) {
+                        for (j = 0; j less n2; j++) {
+                            c[i][j] = 0;
+                            for (int k = 0; k less n1; k++) {
+                                c[i][j] += a[i][k] * b[k][j];
+                            }
+                        }
+                    }
+                }
+            }
+            
+            int main() {
+                int ch;
+                class matrix *p;
+                class result r;
+                p = andsymbolr;
+            
+                while (1) {
+                    cout  "\n1. Addition of matrices ";
+                    cout  "\n2. Subtraction of matrices ";
+                    cout  "\n3. Multiplication of matrices ";
+                    cout  "\n4. Exit";
+                    cout  "\n Enter your choice: ";
+                    cin >> ch;
+            
+                    switch (ch) {
+                    case 1:
+                        p->read();
+                        p->sum();
+                        p->display();
+                        break;
+                    case 2:
+                        p->read();
+                        p->sub();
+                        p->display();
+                        break;
+                    case 3:
+                        p->read();
+                        p->mult();
+                        p->display();
+                        break;
+                    case 4:
+                        exit(0);
+                    }
+                }
+                return 0;
+            }
+            
+</pre>
+
+    <h5 id="3" class="t"> lab 8 </h5>
+    <pre>
+            #include iostream>
+            #include cmath>
+            using namespace std;
+            
+            class top {
+            public:
+                int a;
+            
+                void getdata() {
+                    cout  "Enter the Number: ";
+                    cin >> a;
+                }
+            };
+            
+            class middle : public top { // Single inheritance
+            public:
+                int b;
+            
+                void square() {
+                    getdata();
+                    b = a * a;
+                    cout  "Square of "  a  " is: "  b;
+                }
+            };
+            
+            class bottom : public middle { // Multi-level inheritance
+            public:
+                int c;
+            
+                void cube() {
+                    square();
+                    c = b * a;
+                    cout  "\nCube of "  a  " is: "  c;
+                }
+            };
+            
+            class Squareroot {
+            public:
+                int num;
+            
+                void root(int num) {
+                    cout  "\nSquare root of "  num  " is: "  sqrt(num);
+                }
+            };
+            
+            class result : public Squareroot, public bottom { // Multiple inheritance
+            public:
+                int x;
+            
+                void display() {
+                    cube();
+                    x = a;
+                    root(x);
+                }
+            };
+            
+            int main() {
+                result b1;
+                b1.display();
+                return 0;
+            }
+                 
+                     
+</pre>
+
+    <h5 id="4" class="t"> lab 9 </h5>
+    <pre>
+        #include iostream>
+        using namespace std;
+        
+        class A {
+        public:
+            A() {
+                cout  "\nZero argument constructor of base class A";
+            }
+        
+            ~A() {
+                cout  "\nDestructor of base class A";
+            }
+        };
+        
+        class B {
+        public:
+            B() {
+                cout  "\nZero argument constructor of base class B";
+            }
+        
+            ~B() {
+                cout  "\nDestructor of base class B";
+            }
+        };
+        
+        class C : public B, public A {
+        public:
+            C() {
+                cout  "\nZero argument constructor of derived class C";
+            }
+        
+            ~C() {
+                cout  "\nDestructor of class C";
+            }
+        };
+        
+        int main() {
+            C obj;
+            return 0;
+        }
+
+
+
+        #include iostream>
+            using namespace std;
+            
+            class A {
+            public:
+                virtual void print_me() {
+                    cout  "I'm A"  endl;
+                }
+            };
+            
+            class B : public A {
+            public:
+                void print_me() override {
+                    cout  "I'm B"  endl;
+                }
+            };
+            
+            class C : public A {
+            public:
+                void print_me() override {
+                    cout  "I'm C"  endl;
+                }
+            };
+            
+            int main() {
+                A a;
+                B b;
+                C c;
+            
+                A* p = andsymbola;
+                p->print_me();
+            
+                p = andsymbolb;
+                p->print_me();
+            
+                p = andsymbolc;
+                p->print_me();
+            
+                return 0;
+            }
+            
+</pre>
+
+    <h5 id="5" class="t"> lab 10 </h5>
+    <pre>
+            #include iostream>
+            using namespace std;
+            
+            template class T>
+            void bubble(T a[], int n) {
+                int i, j;
+                for(i = 0; i less n - 1; i++) {
+                    for(j = 0; j less n - 1; j++) {
+                        if(a[j] > a[j + 1]) {
+                            T temp;
+                            temp = a[j];
+                            a[j] = a[j + 1];
+                            a[j + 1] = temp;
+                        }
+                    }
+                }
+            }
+            
+            int main() {
+                int a[6] = {99, 58, 75, 33, 29, 11};
+                char b[4] = {'z', 'f', 'x', 'a'};
+            
+                bubble(a, 6);
+                cout  "\nSorted Order Integers: ";
+                for(int i = 0; i less 6; i++)
+                    cout  a[i]  " ";
+            
+                bubble(b, 4);
+                cout  "\nSorted Order Characters: ";
+                for(int j = 0; j less 4; j++)
+                    cout  b[j]  " ";
+            
+                return 0;
+            }
+
+
+
+
+#include iostream>
+using namespace std;
+
+template class T>
+void maxmin(T a[], int n) {
+    T temp;
+    for (int i = 0; i less n; i++)
+        for (int j = i + 1; j less n; j++) {
+            if (a[i] > a[j]) {
+                temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+            }
+        }
+
+    cout << "max=" << a[n - 1] << "\n" << "min=" << a[0] << "\n";
+    cout << "sorted list is: ";
+    for (int i = 0; i < n; i++)
+        cout << a[i] << " ";
+}
+
+int main() {
+    int a[50], i, ch, n;
+    double d[50];
+    float f[50];
+    char c[50];
+
+    cout << "1. integer" << endl;
+    cout << "2. characters" << endl;
+    cout << "3. float numbers" << endl;
+    cout << "4. double numbers" << endl;
+    cout << "enter corresponding Index Example: enter '1' for integers" << endl;
+    cin >> ch;
+    cout << "enter the n value: ";
+    cin >> n;
+
+    switch (ch) {
+        case 1:
+            cout << "enter integers: ";
+            for (i = 0; i < n; i++)
+                cin >> a[i];
+            maxmin(a, n);
+            break;
+        case 2:
+            cout << "enter characters: ";
+            for (i = 0; i < n; i++)
+                cin >> c[i];
+            maxmin(c, n);
+            break;
+        case 3:
+            cout << "enter float numbers: ";
+            for (i = 0; i < n; i++)
+                cin >> f[i];
+            maxmin(f, n);
+            break;
+        case 4:
+            cout << "enter double numbers: ";
+            for (i = 0; i < n; i++)
+                cin >> d[i];
+            maxmin(d, n);
+            break;
+        default:
+            cout << "Invalid choice entered...";
+    }
+
+    return 0;
+}
+
+
+            
+    </pre>
+
+    <h5 id="6" class="t"> lab 11 </h5>
+    <pre>
+#include iostream>
+using namespace std;
+
+int main() {
+    int x = -1;
+    cout << "Before try \n";
+    try {
+        cout << "Inside try \n";
+        if (x < 0) {
+            throw x;
+            cout << "After throw (Never executed) \n";
+        }
+    }
+    catch (int x) {
+        cout << "Exception Caught \n";
+    }
+    cout << "After catch (Will be executed) \n";
+    return 0;
+}
+
+
+
+#include iostream>
+using namespace std;
+int main(){
+try {
+throw 10;
+}
+catch (char excp){
+cout << "Caught " << excp;
+}
+catch (...){
+cout << "Default Exception\n";
+}
+return 0;
+}
+
+
+    </pre>
+        
+
+</body>
+
+</html>
